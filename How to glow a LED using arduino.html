@@ -1,0 +1,112 @@
+<html>
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<h2 style="font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-stretch: normal; font-weight: normal; margin: 0.75em 0px 0px; position: relative; text-align: left;">
+<span style="background-color: white; color: orange; font-family: Arial, Helvetica, sans-serif; line-height: 1.4;"><span style="font-size: x-large;">How to glow a LED using arduino (basic)</span></span></h2>
+<div class="post-body entry-content" id="post-body-6991191088797697282" itemprop="description articleBody" style="font-size: 13.2px; line-height: 1.4; position: relative; width: 570px;">
+<div dir="ltr" trbidi="on">
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<h2 id="What_is_Arduino_3F" style="border: 0px; color: #555555; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 22px; line-height: 1.1em; margin: 1.1em 0px; outline: 0px; padding: 0px; position: relative; vertical-align: baseline;">
+List of items needed:</h2>
+</div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<ul style="line-height: 1.4; margin: 0.5em 0px; padding: 0px 2.5em;">
+<li style="margin: 0px 0px 0.25em; padding: 0px;"><span style="color: #666666; font-size: 13.2px; line-height: 18.48px;">Arduino Board&nbsp;</span></li>
+<li style="margin: 0px 0px 0.25em; padding: 0px;"><span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;">Jumper wires&nbsp;</span></span></li>
+<li style="margin: 0px 0px 0.25em; padding: 0px;"><span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;">LEDs</span></span></li>
+<li style="margin: 0px 0px 0.25em; padding: 0px;"><span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;">Resistance (47Ohm)</span></span></li>
+<li style="margin: 0px 0px 0.25em; padding: 0px;"><span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;">Breadboard (optional)</span></span></li>
+</ul>
+<h2 id="What_is_Arduino_3F" style="border: 0px; color: #555555; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 22px; line-height: 1.1em; margin: 1.1em 0px; outline: 0px; padding: 0px; position: relative; vertical-align: baseline;">
+Connections and circuit diagram :</h2>
+<div style="text-align: center;">
+<a href="http://2.bp.blogspot.com/-tdPvpMF7mUM/V68nwva6HWI/AAAAAAAAA2E/ahzJ63UsFhY5kn7HuKtLYjNHpoyREVPsQCK4B/s1600/GlowLED_suryaveer.png" imageanchor="1" style="color: #888888; text-decoration: none;"><img border="0" src="https://2.bp.blogspot.com/-tdPvpMF7mUM/V68nwva6HWI/AAAAAAAAA2E/ahzJ63UsFhY5kn7HuKtLYjNHpoyREVPsQCK4B/s1600/GlowLED_suryaveer.png" style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border: 1px solid rgb(238, 238, 238); box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 5px; padding: 5px; position: relative;" /></a></div>
+<span style="color: orange;"><br /></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: orange; font-family: Arial, Helvetica, sans-serif;">For online simulation click here:&nbsp;<a href="https://circuits.io/circuits/2104669-the-unnamed-circuit" style="color: #888888; text-decoration: none;" target="_blank">https://circuits.io/circuits/2104669-the-unnamed-circuit</a></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<br /></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<h2 id="What_is_Arduino_3F" style="border: 0px; color: #555555; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 22px; line-height: 1.1em; margin: 1.1em 0px; outline: 0px; padding: 0px; position: relative; vertical-align: baseline;">
+Let's do some coding in arduino:</h2>
+</div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<div>
+<span style="color: #999999;">// Pin 13 has an LED connected on most Arduino boards.</span></div>
+<div>
+<span style="color: #999999;">// give it a name:</span></div>
+<div>
+<span style="color: #6fa8dc;">int</span>&nbsp;led = 13;</div>
+<div>
+<br /></div>
+<div>
+<span style="color: #999999;">// the setup routine runs once when you press reset:</span></div>
+<div>
+<span style="color: #6fa8dc;">void</span>&nbsp;<span style="color: #6aa84f;">setup</span>()&nbsp;</div>
+<div>
+{</div>
+<div>
+&nbsp;<span style="color: orange;">&nbsp; &nbsp;&nbsp;</span><span style="color: #999999;">&nbsp;// initialize the digital pin as an output.</span></div>
+<div>
+&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: orange;">pinMode</span>(led,&nbsp;<span style="color: #6fa8dc;">OUTPUT</span>);</div>
+<div>
+}</div>
+<div>
+<br /></div>
+<div>
+<span style="color: #999999;">// the loop routine runs over and over again forever:</span></div>
+<div>
+<span style="color: #999999;"><br /></span></div>
+<div>
+<span style="color: #6fa8dc;">void&nbsp;</span><span style="color: #93c47d;">loop</span>() {</div>
+<div>
+<br /></div>
+<div>
+&nbsp; &nbsp; &nbsp;&nbsp;<span style="color: orange;">digitalWrite</span>(led,&nbsp;<span style="color: #6fa8dc;">HIGH</span>); &nbsp;<span style="color: #999999;">&nbsp;// turn the LED on (HIGH is the voltage level)</span></div>
+<div>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp;&nbsp;</span><span style="color: orange;">delay</span>(1000);<span style="color: #999999;">&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; // wait for a second</span></div>
+<div>
+<span style="color: #999999;"><br /></span></div>
+<div>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp;</span><span style="color: orange;">digitalWrite</span>(led<span style="color: #999999;">,&nbsp;</span><span style="color: #6fa8dc;">LOW</span>)<span style="color: #999999;">; &nbsp;&nbsp;&nbsp;// turn the LED off by making the voltage LOW</span></div>
+<div>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp;</span><span style="color: orange;">delay</span>(1000);<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;// wait for a second</span></div>
+<div>
+}</div>
+</div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<h2 id="What_is_Arduino_3F" style="border: 0px; color: #555555; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 22px; line-height: 1.1em; margin: 1.1em 0px; outline: 0px; padding: 0px; position: relative; vertical-align: baseline;">
+Uploading code in arduino:</h2>
+<h2 id="What_is_Arduino_3F" style="border: 0px; color: #555555; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 22px; line-height: 1.1em; margin: 1.1em 0px; outline: 0px; padding: 0px; position: relative; vertical-align: baseline;">
+<span style="color: #666666; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">Connect arduino to the computer then select port:(ex. COM3)&nbsp;</span></h2>
+</div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666; font-size: 13.2px; line-height: 18.48px;"><b>And simply Click on the Upload Button as given blow :</b></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px; text-align: center;">
+<span style="color: #666666; font-size: 13.2px; line-height: 18.48px;"><b><a href="http://4.bp.blogspot.com/-NpFSKJW5l4g/V68t0gxQnjI/AAAAAAAAA2U/eiFVqELLnQgwxJvenbtU7_DJXMPahqUFACK4B/s1600/code_suryaveer.png" imageanchor="1" style="color: #888888; text-decoration: none;"><img border="0" height="265" src="https://4.bp.blogspot.com/-NpFSKJW5l4g/V68t0gxQnjI/AAAAAAAAA2U/eiFVqELLnQgwxJvenbtU7_DJXMPahqUFACK4B/s400/code_suryaveer.png" style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border: 1px solid rgb(238, 238, 238); box-shadow: rgba(0, 0, 0, 0.0980392) 1px 1px 5px; padding: 5px; position: relative;" width="400" /></a></b></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<br /></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;">Now See your LED it will glowing :)</span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;"><br /></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;">You can do many experiments with time delay and connecting more LEDs .</span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;"><br /></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: orange;">If you make something new then post in the comment box that will be appreciable.</span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #ffd966;"><br /></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: orange;">For any suggestion and query post in comment box.</span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;"><br /></span></div>
+<div style="background-color: white; color: #222222; font-family: Arial, Tahoma, Helvetica, FreeSans, sans-serif; font-size: 13.2px; line-height: 18.48px;">
+<span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;">Thanks.</span></span></div>
+<div>
+<span style="color: #666666;"><span style="font-size: 13.2px; line-height: 18.48px;"><br /></span></span></div>
+</div>
+</div>
+</div>
+
+</html>
