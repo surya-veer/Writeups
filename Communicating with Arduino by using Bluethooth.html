@@ -1,0 +1,105 @@
+<thml>
+Communicating with Arduino by using Bluetooth
+
+What is Bluetooth?
+Bluetooth is a global wireless communication standard that connects devices together over a certain distance. Think headset and phone, speaker and PC, basketball to smartphone and more. It is built into billions of products on the market today and connects the Internet of Things (IoT). For more information about IoT, Click here.
+
+
+
+
+
+How does Bluetooth work?
+A Bluetooth device uses radio waves instead of wires or cables to connect to a phone or computer. A Bluetooth product, like a headset or watch, contains a tiny computer chip with a Bluetooth radio and software that makes it easy to connect. When two Bluetooth devices want to talk to each other, they need to pair. Communication between Bluetooth devices happens over short-range, ad HOC networks known as piconets. A piconet is a network of devices connected using Bluetooth technology. The network ranges from two to eight connected devices. When a network is established, one device takes the role of the master while all the other devices act as slaves. Piconets are established dynamically and automatically as Bluetooth devices enter and leave radio proximity. If you want a more technical explanation, you can read the core specification or visit the Wikipedia page for a deeper technical dive.
+
+
+
+
+About HC-05 Bluetooth module for arduino :
+Correct connections:
+
+
+
+
+
+NOTE:  Rx pin of arduino should connect to Tx of Bluetooth vice versa.
+
+
+
+About Pins of  HC-05 Bluetooth module:
+Vcc:  Indicated range is 3.6 to 6 volt. To be on safer side, you should connect it to 3.3 Volt.
+GND: Ground
+TX: Serial output pin
+RX: Serial input pin
+
+Baud rate of HC-05:
+Generally the baud rate of 9600 but it can also differ for different module you can simply check by changing baud rate in your serial monitor of Arduino.
+
+ Default password for connecting to your phone:
+ Generally the default password for HC-05 is "1234" or you can check it on your datasheet  of your Bluetooth module.
+
+Now this is the time for making a small project using Bluetooth
+
+We are going to blink a LED via Bluetooth signal using Smartphone.
+List of Parts needed:
+
+Arduino
+Breadboard 
+Some jumpers wires
+Bluetooth module (ex. HC-05)
+Android Phone with this app multicontroller (click here to download)
+LEDs, resistors etc.
+First you need to build a circuit given blow by using breadboard and jumper wires.
+
+ 
+Circuit Diagram
+
+Now this is time to do code in arduino:
+//*******************************************************//
+//initializing pin 8 for led 
+int ledPin=8;
+void setup() {
+  // starting the serial port
+  Serial.begin(9600);
+  //initializing ledPin to OUTPUT mode
+  pinMode(ledPin,OUTPUT);
+}
+void loop() {
+  //checking whether data is coming from the device
+  while(Serial.available()>0)
+  {
+    int data=Serial.read(); //reading data from Bluetooth module 
+    Serial.println(data);   //print data in serial monitor
+    if(data==1)  //if button 1 pressed led blink
+    {
+      digitalWrite(ledPin,HIGH);
+    }
+    if(data==2)   //if button 2 id pressed led will turn off
+    {
+      digitalWrite(ledPin,LOW);
+    }  
+  }
+}
+//*******************************************************//
+Now this is the time to upload the code into Arduino just click on Upload button
+NOTE: One thing you should remember that at the time of uploading code into Arduino Tx& and Rx pin should be disconnected to Arduino.
+
+Final steps:
+
+Turn on your Bluetooth .
+Open Multicontroller  (click here to download)  App than click on "Select Bluetooth Module" and than choose Module named as "HC-05" (or other).
+Now you can control your LED by button "1" and "2".
+
+That was all about basics of Bluetooth controlling. You can do many interesting projects by using Bluetooth and Android Phone. 
+
+I hope you have enjoyed this :)
+For any suggestion and query please write in comment box.
+
+Thanks.
+
+
+
+
+
+  
+ 
+</html>
